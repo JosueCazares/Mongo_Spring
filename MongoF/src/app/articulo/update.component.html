@@ -1,0 +1,44 @@
+<app-menu></app-menu>
+<div class="container">
+    <div class="rom mt-5">
+        <div class="col-md-4 mx-auto">
+            <h4 class="text-center">Update</h4>
+            <form (ngSubmit)="onUpdate()" novalidate #f="ngForm">
+                <div class="mb-3">
+                  <input type="text" class="form-control" id="Titulo" name="titulo" placeholder="Titulo" autocomplete="off" required
+                  [(ngModel)]="articulo.titulo">
+                </div>
+                <div class="mb-3">
+                    <input type="date" class="form-control" id="Fecha" name="fecha" placeholder="Fecha" autocomplete="off" required
+                    [(ngModel)]="articulo.fecha">
+                </div>
+                <div class="mb-3">
+                    <input type="text" class="form-control" id="autor" name="autor" placeholder="Autor" autocomplete="off" required
+                    [(ngModel)]="articulo.autor">
+                </div>
+                <div class="mb-3">
+                    <input type="text" class="form-control" id="contenido" name="contenido" placeholder="Contenido" autocomplete="off" required
+                    [(ngModel)]="articulo.contenido">
+                </div>
+                <div class="mb-3">
+                    <label for="formFile" class="form-label">Imagen</label>
+                    <input type="file" class="form-control" id="imagen" name="imagen" placeholder="Imagen" autocomplete="off" required
+                    [(ngModel)]="articulo.imagen">
+                </div>
+                <div class="mb-3">
+                    <label for="formFile" class="form-label">Categoria</label>
+                    <select class="form-select" aria-label="Default select example" [(ngModel)]="articulo.categoria" required>
+                        <option value="Fitness">Fitness</option>
+                        <option value="Food">Food</option>
+                        <option value="Space">Space</option>
+                      </select>
+                </div>
+                
+                <button  class="btn btn-outline-success w-100 mb-3" [disabled]="!f.valid"><i class="fas fa-plus-circle"></i> Update</button>
+                <button class="btn btn-outline-primary w-100" routerLink="/">
+                    <i class="fas fa-arrow-alt-circle-left"></i>Back
+                </button>
+            </form>
+        </div>
+    </div>
+</div>
